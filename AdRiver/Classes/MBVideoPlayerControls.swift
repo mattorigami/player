@@ -1,10 +1,3 @@
-//
-//  MBVideoOverlay.swift
-//  MBVideoPlayer
-//
-//  Created by Muhammad Waqas on 07/12/2019.
-//  Copyright © 2019 Muhammad Waqas. All rights reserved.
-//
 
 import UIKit
 import AVKit
@@ -82,12 +75,12 @@ class MBVideoPlayerControls: UIView {
         return stackView
     }()
     
-    lazy private var bottomControlsStackView: UIStackView  = {
-       let stackView = UIStackView()
-       stackView.axis = .horizontal
-       stackView.translatesAutoresizingMaskIntoConstraints = false
-       return stackView
-    }()
+//    lazy private var bottomControlsStackView: UIStackView  = {
+//       let stackView = UIStackView()
+//       stackView.axis = .vertical
+//       stackView.translatesAutoresizingMaskIntoConstraints = false
+//       return stackView
+//    }()
     
     private lazy var backgroundView: UIView = {
        let view = UIView()
@@ -153,7 +146,7 @@ class MBVideoPlayerControls: UIView {
             - currentItem: current video which is playing
             - items: all the next playlistitems
      */
-    func setPlayList(currentItem: PlayerItem, items: [PlayerItem]) {
+    func setPlayList(currentItem: PlayerItem, items: [PlayerItem]? = nil) {
         
         playerItems = items
         self.currentItem = currentItem
@@ -168,38 +161,39 @@ class MBVideoPlayerControls: UIView {
         addSubview(activityView)
         activityView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         activityView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        
+        let nibs = Bundle.main.loadNibNamed("ControlView", owner: nil, options: nil)
+        let bottomControlsStackView = nibs![0] as! ControlView
+        //bottomControlsStackView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: 100)
         addSubview(bottomControlsStackView)
-        bottomControlsStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        bottomControlsStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        bottomControlsStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
+        bottomControlsStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
         bottomControlsStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
-
-        if configuration.canShowPlayPause {
-            addPlayPauseButton()
-        }
+        bottomControlsStackView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
         
         if configuration.canShowForwardBack {
-            addForwardBackwardButton()
+            //addForwardBackwardButton()
         }
         
         if configuration.canShowTime {
-            addTimeLabel()
+           // addTimeLabel()
         }
         
+        if configuration.canShowTime {
+           // addTotalTimeLabel()
+        }
         if configuration.canShowTimeBar {
-            addTimeBar()
+            //addTimeBar()
         }
-        
-        if configuration.canShowTime {
-            addTotalTimeLabel()
+        if configuration.canShowPlayPause {
+           // addPlayPauseButton()
         }
-        
         if configuration.canShowFullScreenBtn {
-            addResizeBtn()
+            //addResizeBtn()
         }
         
         if configuration.canShowVideoList {
-            addPlayList()
+            //addPlayList()
         }
 
         if configuration.canShowHeader {
@@ -361,39 +355,44 @@ class MBVideoPlayerControls: UIView {
         }
     }
     
-    private func addResizeBtn() {
-        // resize button
-        bottomControlsStackView.addArrangedSubview(resizeButton)
-        resizeButton.widthAnchor.constraint(equalToConstant: 30.0).isActive = true
-        resizeButton.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
-    }
-    
-    private func addTimeBar() {
-          // seek slider
-          bottomControlsStackView.addArrangedSubview(seekSlider)
-          seekSlider.centerYAnchor.constraint(equalTo: bottomControlsStackView.centerYAnchor, constant: 0).isActive = true
-    }
-    
-    private func addTimeLabel() {
-        // time label
-        bottomControlsStackView.addArrangedSubview(playerTimeLabel)
-        playerTimeLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        playerTimeLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-    }
-    
-    private func addTotalTimeLabel() {
-        // total time label
-        bottomControlsStackView.addArrangedSubview(fullTimeLabel)
-        fullTimeLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        fullTimeLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-    }
-    
-    private func addPlayPauseButton() {
-        // play/pause button
-        addSubview(playButton)
-        playButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        playButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-    }
+//    private func addResizeBtn() {
+//        // resize button
+//        bottomControlsStackView.addArrangedSubview(resizeButton)
+//        resizeButton.widthAnchor.constraint(equalToConstant: 30.0).isActive = true
+//        resizeButton.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
+//    }
+//
+//    private func addTimeBar() {
+//          // seek slider
+//          bottomControlsStackView.addArrangedSubview(seekSlider)
+//          seekSlider.centerYAnchor.constraint(equalTo: bottomControlsStackView.centerYAnchor, constant: 0).isActive = true
+//    }
+//
+//    private func addTimeLabel() {
+//        // time label
+//        bottomControlsStackView.addArrangedSubview(playerTimeLabel)
+//        playerTimeLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
+//        playerTimeLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+//    }
+//
+//    private func addTotalTimeLabel() {
+//        // total time label
+//        bottomControlsStackView.addArrangedSubview(fullTimeLabel)
+//        fullTimeLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
+//        fullTimeLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+////        //fullTimeLabel.addConstraint(NSLayoutConstraint(item: gamePreview, attribute: .Trailing, relatedBy: .Equal, toItem: view, attribute: .Trailing, multiplier: 1, constant: 0))
+////       // [fullTimeLabel.heightAnchor constraintEqualToConstant:100].active = true;
+////        fullTimeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
+//    }
+//
+//    private func addPlayPauseButton() {
+//        // play/pause button
+//        bottomControlsStackView.addArrangedSubview(playButton)
+//        //playButton.centerYAnchor.constraint(equalTo: bottomControlsStackView.centerYAnchor, constant: 0).isActive = true
+//       //addSubview(playButton)
+//        playButton.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+////        playButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+//    }
     
     private func addForwardBackwardButton() {
         // backward button

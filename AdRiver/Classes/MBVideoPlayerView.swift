@@ -1,10 +1,3 @@
-//
-//  AVPlayerView.swift
-//  VideoStreamingDemo
-//
-//  Created by Muhammad Waqas on 02/12/2019.
-//  Copyright © 2019 Muhammad Waqas. All rights reserved.
-//
 
 import Foundation
 import AVKit
@@ -107,8 +100,8 @@ open class MBVideoPlayerView: UIView {
     func didRegisterPlayerItemCell(_ identifier: String, collectioViewCell cell: UICollectionViewCell.Type) {
         overlayView.didRegisterPlayerItemCell(identifier, collectioViewCell: cell)
     }
-    
-    public func setPlayList(currentItem: PlayerItem, items: [PlayerItem], fullScreenView: UIView? = nil) {
+    // optianl
+    public func setPlayList(currentItem: PlayerItem, items: [PlayerItem]?, fullScreenView: UIView? = nil) {
         
         //playerLayer?.frame = self.bounds
         
@@ -118,7 +111,7 @@ open class MBVideoPlayerView: UIView {
             didLoadVideo(url)
         }
         
-        overlayView.setPlayList(currentItem: currentItem, items: items)
+        overlayView.setPlayList(currentItem: currentItem, items: nil)
     }
     
     private func setupPlayer(_ header: UIView?) {
