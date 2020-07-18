@@ -266,6 +266,7 @@ class SearchVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     
             playerView.setPlayList(currentItem: PlayerItem(title: "By Apple", url: url, thumbnail: "5"), items: nil, fullScreenView: view)
             
+            
             view.addSubview(playerView)
             playerView.pinEdges(to: view)
             
