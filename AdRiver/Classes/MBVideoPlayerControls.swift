@@ -9,6 +9,8 @@ class MBVideoPlayerControls: UIView {
     
     // MARK: - Instance Variables
 
+    let bottomControlsStackView = Bundle.main.loadNibNamed("ControlView", owner: nil, options: nil)?[0] as! ControlView
+    
     lazy private var playButton: UIButton = {
        let playButton = UIButton()
         playButton.translatesAutoresizingMaskIntoConstraints = false
@@ -43,21 +45,6 @@ class MBVideoPlayerControls: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         return label
-    }()
-    
-    lazy private var fullTimeLabel: UILabel = {
-       let timeLabel = UILabel()
-        timeLabel.text = delegate?.totalDuration?.description ?? CMTime.zero.description
-        timeLabel.translatesAutoresizingMaskIntoConstraints = false
-        timeLabel.textAlignment = .center
-        return timeLabel
-    }()
-    
-    lazy private var seekSlider: UISlider = {
-        let slider = UISlider()
-        slider.translatesAutoresizingMaskIntoConstraints = false
-        slider.addTarget(self, action: #selector(self.changeSeekSlider(_:)), for: .valueChanged)
-        return slider
     }()
     
     lazy private var activityView: UIActivityIndicatorView = {
@@ -161,15 +148,15 @@ class MBVideoPlayerControls: UIView {
         addSubview(activityView)
         activityView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         activityView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        let nibs = Bundle.main.loadNibNamed("ControlView", owner: nil, options: nil)
-        let bottomControlsStackView = nibs![0] as! ControlView
-        //bottomControlsStackView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: 100)
+        bottomControlsStackView.delegate = self
         addSubview(bottomControlsStackView)
         bottomControlsStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
         bottomControlsStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
-        bottomControlsStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
-        bottomControlsStackView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        
+        bottomControlsStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            bottomControlsStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
+            ])
+
         
         if configuration.canShowForwardBack {
             //addForwardBackwardButton()
@@ -213,10 +200,7 @@ class MBVideoPlayerControls: UIView {
         forwardButton.tintColor = theme.buttonTintColor
         backButton.tintColor = theme.buttonTintColor
         resizeButton.tintColor = theme.buttonTintColor
-        fullTimeLabel.textColor = theme.timeLabelTextColor
         playerTimeLabel.textColor = theme.timeLabelTextColor
-        seekSlider.tintColor = theme.sliderTintColor
-        seekSlider.thumbTintColor = theme.sliderThumbColor
         activityView.color = theme.activityViewColor
         collectionView.backgroundColor = theme.playListItemsBackgroundColor
         resizeButton.setImage(theme.resizeButtonImage, for: .normal)
@@ -238,12 +222,15 @@ class MBVideoPlayerControls: UIView {
     
     func videoDidStart() {
         playerTimeLabel.text = CMTime.zero.description
-        seekSlider.value = 0.0
-        fullTimeLabel.text = delegate?.totalDuration?.description ?? CMTime.zero.description
+        bottomControlsStackView.seekBar.value = 0.0
+        bottomControlsStackView.seekBar.maximumValue = delegate?.totalDuration?.asFloat as! Float
+        bottomControlsStackView.totalTimeLable.text = delegate?.totalDuration?.description ?? CMTime.zero.description
     }
     
     func videoDidChange(_ time: CMTime) {
-        playerTimeLabel.text = time.description
+        bottomControlsStackView.totalTimeLable.text =  time.description
+        guard let totalDuration = delegate?.totalDuration else { return }
+        bottomControlsStackView.seekBar.value = time.asFloat
     }
     
     override public func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -299,7 +286,7 @@ class MBVideoPlayerControls: UIView {
         let time2: CMTime = CMTimeMake(value: Int64(newTime * 1000 as Float64), timescale: 1000)
         delegate?.seekToTime(time2)
         playerTimeLabel.text = time2.description
-        seekSlider.value = time2.asFloat / totalDuration.asFloat
+        self.bottomControlsStackView.seekBar.value = time2.asFloat / totalDuration.asFloat
         if let player = delegate?.playerTimeDidChange {
             player(time2.asDouble, totalDuration.asDouble)
         }
@@ -314,7 +301,7 @@ class MBVideoPlayerControls: UIView {
             let time2: CMTime = CMTimeMake(value: Int64(newTime * 1000 as Float64), timescale: 1000)
             delegate?.seekToTime(time2)
             playerTimeLabel.text = time2.description
-            seekSlider.value = time2.asFloat / totalDuration.asFloat
+            self.bottomControlsStackView.seekBar.value = time2.asFloat / totalDuration.asFloat
             if let player = delegate?.playerTimeDidChange {
                 player(time2.asDouble, totalDuration.asDouble)
             }
@@ -415,7 +402,6 @@ class MBVideoPlayerControls: UIView {
         // videos stackview
         playListStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         playListStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
-        playListStackView.bottomAnchor.constraint(equalTo: self.seekSlider.topAnchor, constant: -10.0).isActive = true
         playListStackView.heightAnchor.constraint(equalToConstant: 100.0).isActive = true
         
         // collectionView
@@ -461,3 +447,12 @@ extension MBVideoPlayerControls: UICollectionViewDelegate {
 }
 
 
+extension MBVideoPlayerControls:ControlViewDelegate{
+    func playBtnPress(_ sender: UIButton) {
+        self.clickPlayButton(sender)
+    }
+    
+    func sliderValeChanged(_ slider: UISlider) {
+        self.changeSeekSlider(slider)
+    }
+}

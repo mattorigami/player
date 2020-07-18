@@ -7,12 +7,18 @@
 //
 
 import UIKit
-class ControlView: UIView {
+protocol ControlViewDelegate {
+    func playBtnPress(_ sender: UIButton)
+    func sliderValeChanged(_ slider:UISlider)
+}
 
+class ControlView: UIView {
     @IBOutlet weak var verticalStackView: UIStackView!
-    @IBOutlet weak var totalTimeLable: UILabel!
-    @IBOutlet weak var seekBar: UISlider!
+    @IBOutlet weak public var totalTimeLable: UILabel!
+    @IBOutlet weak public var seekBar: UISlider!
     @IBOutlet weak var playButton: UIButton!
+    var delegate : ControlViewDelegate?
+    var controlDelegate : MBVideoPlayerControlsDelegate?
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -28,6 +34,14 @@ class ControlView: UIView {
         super.init(coder: coder)
         //fatalError("init(coder:) has not been implemented")
     }
-    
+    override func awakeFromNib() {
+        
+    }
+    @IBAction func playBtnPressed(_ sender: UIButton) {
+        self.delegate?.playBtnPress(sender)
+    }
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        self.delegate?.sliderValeChanged(sender)
+    }
     
 }
