@@ -261,8 +261,6 @@
 			isa = PBXGroup;
 			children = (
 				CE1E952924C329ED003A7DF2 /* CMTime+extension.swift */,
-				CE1E952524C329ED003A7DF2 /* ControlView.swift */,
-				CE1E952A24C329ED003A7DF2 /* ControlView.xib */,
 				CE1E952124C329ED003A7DF2 /* MBConfiguration.swift */,
 				CE1E952024C329ED003A7DF2 /* MBTheme.swift */,
 				CE1E952724C329ED003A7DF2 /* MBVideoPlayerControls.swift */,
@@ -271,6 +269,8 @@
 				CE1E952224C329ED003A7DF2 /* MBVideoPlayerView.swift */,
 				CE1E952424C329ED003A7DF2 /* PlayerItem.swift */,
 				CE1E952824C329ED003A7DF2 /* VideoCollectionViewCell.swift */,
+				CE1E952524C329ED003A7DF2 /* ControlView.swift */,
+				CE1E952A24C329ED003A7DF2 /* ControlView.xib */,
 			);
 			name = Classes;
 			path = ../../../Desktop/Classes;
