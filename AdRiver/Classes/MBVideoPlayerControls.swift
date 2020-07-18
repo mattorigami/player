@@ -448,6 +448,9 @@ extension MBVideoPlayerControls: UICollectionViewDelegate {
 
 
 extension MBVideoPlayerControls:ControlViewDelegate{
+    func soundBtnPress(_ sender: UIButton) {
+    }
+    
     func playBtnPress(_ sender: UIButton) {
         self.clickPlayButton(sender)
     }

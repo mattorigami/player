@@ -9,6 +9,7 @@
 import UIKit
 protocol ControlViewDelegate {
     func playBtnPress(_ sender: UIButton)
+    func soundBtnPress(_ sender: UIButton)
     func sliderValeChanged(_ slider:UISlider)
 }
 // dummy cahnge
@@ -17,6 +18,7 @@ class ControlView: UIView {
     @IBOutlet weak public var totalTimeLable: UILabel!
     @IBOutlet weak public var seekBar: UISlider!
     @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var soundButton: UIButton!
     var delegate : ControlViewDelegate?
     var controlDelegate : MBVideoPlayerControlsDelegate?
     /*
@@ -42,6 +44,9 @@ class ControlView: UIView {
     }
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         self.delegate?.sliderValeChanged(sender)
+    }
+    @IBAction func soundBtnPressed(_ sender: UIButton) {
+        self.delegate?.soundBtnPress(sender)
     }
     
 }

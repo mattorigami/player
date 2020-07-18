@@ -251,6 +251,7 @@
 				C92D2F3324C353B90098E078 /* MBVideoPlayerView.swift */,
 				C92D2F3424C353B90098E078 /* MBConfiguration.swift */,
 				C92D2F3524C353B90098E078 /* MBTheme.swift */,
+				C92D2F3D24C353B90098E078 /* ControlView.swift */,
 				C92D2F3624C353B90098E078 /* ControlView.xib */,
 				C92D2F3724C353B90098E078 /* MBVideoPlayerControls.swift */,
 				C92D2F3824C353B90098E078 /* MBVideoPlayerDelegates.swift */,
@@ -258,7 +259,6 @@
 				C92D2F3A24C353B90098E078 /* VideoCollectionViewCell.swift */,
 				C92D2F3B24C353B90098E078 /* CMTime+extension.swift */,
 				C92D2F3C24C353B90098E078 /* PlayerItem.swift */,
-				C92D2F3D24C353B90098E078 /* ControlView.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
