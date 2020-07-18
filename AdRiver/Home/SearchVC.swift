@@ -21,7 +21,7 @@ class SearchVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     ///
     @IBOutlet weak var collectionAds: UICollectionView!
     @IBOutlet weak var videoPlayerView: MBVideoPlayerView!
-    let playerView = MBVideoPlayerView(configuration: nil, theme: nil, header: nil)
+    var playerView = MBVideoPlayerView(configuration: nil, theme: nil, header: nil)
     var adsArray : NSArray!
     
     
@@ -271,7 +271,12 @@ class SearchVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
             playerView.pinEdges(to: view)
             
             playerView.playerStateDidChange = { (state) in
-                
+                if state == .twentySecPause {
+                    self.showSurveyView()
+                }
+                if state == .stopPlaying {
+                    self.playerView.removeFromSuperview()
+                }
             }
             playerView.playerOrientationDidChange = { (orientation) in
                 
@@ -283,13 +288,17 @@ class SearchVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
                 
             }
             
-            /////////////////////////////////
-            ///////
-            
         }
         
     }
     
+    func showSurveyView(){
+        let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "FeedbackQ1VC") as! FeedbackQ1VC
+        VC1.modalPresentationStyle = .overCurrentContext
+
+        let navController = UINavigationController(rootViewController: VC1) // Creating a navigation controller with VC1 at the root of the navigation stack.
+        self.present(navController, animated:true, completion: nil)
+    }
     @objc func playerDidFinishPlaying(note: NSNotification) {
         print("Video Finished")
         self.dismiss(animated: true) {

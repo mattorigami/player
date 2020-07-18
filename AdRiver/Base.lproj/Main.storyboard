@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bqj-4e-oNe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bqj-4e-oNe">
     <device id="retina4_7" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -632,7 +632,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="svJ-FP-YOc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-296" y="1748"/>
+            <point key="canvasLocation" x="-393" y="1748"/>
         </scene>
         <!--FeedbackQ1VC-->
         <scene sceneID="8fd-LV-FgU">
@@ -642,6 +642,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="se9-Wl-M2s">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What do you think of the ad?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znl-gi-V93">
                                 <rect key="frame" x="206" y="126" width="255" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -689,7 +694,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="UxT-b7-RKM"/>
                     </view>
                     <navigationItem key="navigationItem" id="Swb-nS-9Su"/>
@@ -699,7 +704,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="peF-qY-nJj" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="343" y="1748"/>
+            <point key="canvasLocation" x="342.27886056971516" y="1748"/>
         </scene>
         <!--Feedback Step2VC-->
         <scene sceneID="RVh-c4-Hlw">
@@ -1165,7 +1170,7 @@
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="A3E-oh-ccL">
                                 <rect key="frame" x="20" y="70" width="627" height="305"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XpV-vw-wpQ">
                                     <size key="itemSize" width="303" height="225"/>
@@ -1236,7 +1241,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AdRiver-Icon" width="161" height="154"/>
+        <image name="AdRiver-Icon" width="80" height="80"/>
         <image name="Back" width="8" height="15"/>
         <image name="Deslike" width="64" height="64"/>
         <image name="Like" width="64" height="64"/>

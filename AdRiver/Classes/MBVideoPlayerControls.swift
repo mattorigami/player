@@ -113,6 +113,8 @@ class MBVideoPlayerControls: UIView {
     /// default theme for the player
     var theme = MainTheme()
     
+    var is20SecPause : Bool = false
+    
     /// all four constraints of the player from mainContainer which we are using to make it fullScreen
     private var topC: NSLayoutConstraint?
     private var bottomC: NSLayoutConstraint?
@@ -169,7 +171,7 @@ class MBVideoPlayerControls: UIView {
         sideMenuStackView.bottomAnchor.constraint(equalTo: bottomControlsStackView.topAnchor, constant: -5),
         ])
         
-        
+        topView.delegate = self
         addSubview(topView)
         topView.translatesAutoresizingMaskIntoConstraints = false
         topView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
@@ -247,9 +249,18 @@ class MBVideoPlayerControls: UIView {
     }
     
     func videoDidChange(_ time: CMTime) {
+        if is20SecPause {
+            return
+        }
         bottomControlsStackView.totalTimeLable.text =  time.description
-        guard let totalDuration = delegate?.totalDuration else { return }
         bottomControlsStackView.seekBar.value = time.asFloat
+        if floor(time.asFloat) == 5.0 {
+            is20SecPause = true
+            bottomControlsStackView.playBtnPressed(bottomControlsStackView.playButton)
+            if let player = self.delegate?.playerStateDidChange {
+                player((MBVideoPlayerState.twentySecPause))
+            }
+        }
     }
     
     override public func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -477,5 +488,16 @@ extension MBVideoPlayerControls:ControlViewDelegate{
     
     func sliderValeChanged(_ slider: UISlider) {
         self.changeSeekSlider(slider)
+    }
+}
+extension MBVideoPlayerControls:PlayerTopViewDelegate{
+    func stopButtonPressed() {
+//        if !bottomControlsStackView.playButton.isSelected {
+//            bottomControlsStackView.playButton.isSelected = !bottomControlsStackView.playButton.isSelected
+//        }
+        bottomControlsStackView.playBtnPressed(bottomControlsStackView.playButton)
+        if let player = delegate?.playerStateDidChange {
+            player((.stopPlaying))
+        }
     }
 }

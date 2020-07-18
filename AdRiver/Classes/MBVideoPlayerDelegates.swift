@@ -16,6 +16,8 @@ public enum MBVideoPlayerState {
     case pause
     case playedToTheEnd
     case error
+    case twentySecPause
+    case stopPlaying
 }
 
 /** MBVideoPlayerControlsDelegate which can can listen to different events

@@ -7,9 +7,12 @@
 //
 
 import UIKit
-
+protocol PlayerTopViewDelegate {
+    func stopButtonPressed()
+}
 class PlayerTopView: UIView {
 
+    var delegate : PlayerTopViewDelegate?
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -17,5 +20,8 @@ class PlayerTopView: UIView {
         // Drawing code
     }
     */
-
+    @IBAction func stopButtonPressed(_ sender: UIButton) {
+        self.delegate?.stopButtonPressed()
+    }
+    
 }

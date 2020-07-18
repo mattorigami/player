@@ -39,6 +39,9 @@
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="iv8-FE-Ksv"/>
                             </constraints>
                             <state key="normal" backgroundImage="Follow"/>
+                            <connections>
+                                <action selector="stopButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="LiE-MW-5g4"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By Apple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0O-Wq-Oqk">
                             <rect key="frame" x="56" y="29.5" width="69" height="21"/>
