@@ -213,6 +213,9 @@ open class MBVideoPlayerView: UIView {
 // MARK: MBVideoPlayerControlsDelegate
 
 extension MBVideoPlayerView: MBVideoPlayerControlsDelegate {
+    public func mute(isMute: Bool) {
+        queuePlayer.isMuted = isMute
+    }
     
     public func didLoadVideo(_ url: URL) {
         

@@ -42,6 +42,10 @@
 		C9C9D8382469E39E00CF03AA /* FeedbackStep2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C9D8372469E39E00CF03AA /* FeedbackStep2VC.swift */; };
 		C9C9D83A2469E3B300CF03AA /* FeedbackStep3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C9D8392469E3B300CF03AA /* FeedbackStep3VC.swift */; };
 		C9C9D83C2469E3C400CF03AA /* FeedbackStep4VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C9D83B2469E3C400CF03AA /* FeedbackStep4VC.swift */; };
+		CEF192F424C388F40030641E /* SideButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF192F324C388F40030641E /* SideButtonView.swift */; };
+		CEF192F624C3890E0030641E /* SideButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEF192F524C3890E0030641E /* SideButtonView.xib */; };
+		CEF192F824C393110030641E /* PlayerTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF192F724C393110030641E /* PlayerTopView.swift */; };
+		CEF192FA24C3934B0030641E /* PlayerTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEF192F924C3934B0030641E /* PlayerTopView.xib */; };
 		E78345AFB577E19C66E2893E /* Pods_AdRiver_AdRiverUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C24D313E022DFED22859CC3 /* Pods_AdRiver_AdRiverUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +114,10 @@
 		C9C9D8392469E3B300CF03AA /* FeedbackStep3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackStep3VC.swift; sourceTree = "<group>"; };
 		C9C9D83B2469E3C400CF03AA /* FeedbackStep4VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackStep4VC.swift; sourceTree = "<group>"; };
 		CC580CE68813EA2E8E18C831 /* Pods_AdRiverTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdRiverTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEF192F324C388F40030641E /* SideButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideButtonView.swift; sourceTree = "<group>"; };
+		CEF192F524C3890E0030641E /* SideButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideButtonView.xib; sourceTree = "<group>"; };
+		CEF192F724C393110030641E /* PlayerTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTopView.swift; sourceTree = "<group>"; };
+		CEF192F924C3934B0030641E /* PlayerTopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerTopView.xib; sourceTree = "<group>"; };
 		CEFCCE9B1834F1E693081CD3 /* Pods-AdRiver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdRiver.debug.xcconfig"; path = "Target Support Files/Pods-AdRiver/Pods-AdRiver.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -259,6 +267,10 @@
 				C92D2F3A24C353B90098E078 /* VideoCollectionViewCell.swift */,
 				C92D2F3B24C353B90098E078 /* CMTime+extension.swift */,
 				C92D2F3C24C353B90098E078 /* PlayerItem.swift */,
+				CEF192F324C388F40030641E /* SideButtonView.swift */,
+				CEF192F524C3890E0030641E /* SideButtonView.xib */,
+				CEF192F724C393110030641E /* PlayerTopView.swift */,
+				CEF192F924C3934B0030641E /* PlayerTopView.xib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -387,6 +399,8 @@
 				C90D1FD2245B9B0900D17953 /* LaunchScreen.storyboard in Resources */,
 				C90D1FCF245B9B0900D17953 /* Assets.xcassets in Resources */,
 				C9388D862469FDEF00B60167 /* SpaceX.mov in Resources */,
+				CEF192F624C3890E0030641E /* SideButtonView.xib in Resources */,
+				CEF192FA24C3934B0030641E /* PlayerTopView.xib in Resources */,
 				C90D1FCD245B9B0500D17953 /* Main.storyboard in Resources */,
 				C92D2F4124C353B90098E078 /* ControlView.xib in Resources */,
 			);
@@ -517,9 +531,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C92D2F3E24C353B90098E078 /* MBVideoPlayerView.swift in Sources */,
+				CEF192F824C393110030641E /* PlayerTopView.swift in Sources */,
 				C9C9D8382469E39E00CF03AA /* FeedbackStep2VC.swift in Sources */,
 				C92D2F4724C353B90098E078 /* PlayerItem.swift in Sources */,
 				C9C9D83A2469E3B300CF03AA /* FeedbackStep3VC.swift in Sources */,
+				CEF192F424C388F40030641E /* SideButtonView.swift in Sources */,
 				C92D2F3F24C353B90098E078 /* MBConfiguration.swift in Sources */,
 				C90D1FCA245B9B0500D17953 /* ViewController.swift in Sources */,
 				C92D2F4324C353B90098E078 /* MBVideoPlayerDelegates.swift in Sources */,

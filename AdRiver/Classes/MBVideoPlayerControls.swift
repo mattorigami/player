@@ -11,6 +11,10 @@ class MBVideoPlayerControls: UIView {
 
     let bottomControlsStackView = Bundle.main.loadNibNamed("ControlView", owner: nil, options: nil)?[0] as! ControlView
     
+    let sideMenuStackView = Bundle.main.loadNibNamed("SideButtonView", owner: nil, options: nil)?[0] as! SideButtonView
+    
+    let topView = Bundle.main.loadNibNamed("PlayerTopView", owner: nil, options: nil)?[0] as! PlayerTopView
+    
     lazy private var playButton: UIButton = {
        let playButton = UIButton()
         playButton.translatesAutoresizingMaskIntoConstraints = false
@@ -101,7 +105,7 @@ class MBVideoPlayerControls: UIView {
     var delegate: MBVideoPlayerControlsDelegate?
     
     /// custom header which comes as a default header
-    var videoPlayerHeader: MBVideoPlayerHeaderView?
+    //var videoPlayerHeader: MBVideoPlayerHeaderView?
     
     /// default configuration for player
     var configuration = MainConfiguration()
@@ -138,7 +142,7 @@ class MBVideoPlayerControls: UIView {
         playerItems = items
         self.currentItem = currentItem
         collectionView.reloadData()
-        videoPlayerHeader?.setItem(currentItem)
+        //videoPlayerHeader?.setItem(currentItem)
         
     }
     
@@ -157,6 +161,21 @@ class MBVideoPlayerControls: UIView {
             bottomControlsStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
             ])
 
+        
+        addSubview(sideMenuStackView)
+        sideMenuStackView.translatesAutoresizingMaskIntoConstraints = false
+        sideMenuStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
+        NSLayoutConstraint.activate([
+        sideMenuStackView.bottomAnchor.constraint(equalTo: bottomControlsStackView.topAnchor, constant: -5),
+        ])
+        
+        
+        addSubview(topView)
+        topView.translatesAutoresizingMaskIntoConstraints = false
+        topView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
+        topView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        topView.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
+        
         
         if configuration.canShowForwardBack {
             //addForwardBackwardButton()
@@ -183,14 +202,14 @@ class MBVideoPlayerControls: UIView {
             //addPlayList()
         }
 
-        if configuration.canShowHeader {
-            if header == nil {
-                videoPlayerHeader = MBVideoPlayerHeaderView(configuration: configuration, theme: theme, delegate: delegate)
-                setHeaderView(videoPlayerHeader!)
-            } else {
-                setHeaderView(header!)
-            }
-        }
+//        if configuration.canShowHeader {
+//            if header == nil {
+//                videoPlayerHeader = MBVideoPlayerHeaderView(configuration: configuration, theme: theme, delegate: delegate)
+//                setHeaderView(videoPlayerHeader!)
+//            } else {
+//                setHeaderView(header!)
+//            }
+//        }
         
         applyTheme(theme)
     }
@@ -440,7 +459,7 @@ extension MBVideoPlayerControls: UICollectionViewDelegate {
         }
         if let item = playerItems?[indexPath.row], let url = URL(string: item.url) {
             delegate?.didLoadVideo(url)
-            videoPlayerHeader?.setItem(item)
+            //videoPlayerHeader?.setItem(item)
         }
     }
     
@@ -449,6 +468,7 @@ extension MBVideoPlayerControls: UICollectionViewDelegate {
 
 extension MBVideoPlayerControls:ControlViewDelegate{
     func soundBtnPress(_ sender: UIButton) {
+        delegate?.mute(isMute: sender.isSelected)
     }
     
     func playBtnPress(_ sender: UIButton) {

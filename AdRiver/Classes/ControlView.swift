@@ -37,15 +37,20 @@ class ControlView: UIView {
         //fatalError("init(coder:) has not been implemented")
     }
     override func awakeFromNib() {
-        
+        self.perform(#selector(playView), with: nil, afterDelay: 0.2)
+    }
+    @objc func playView(){
+        self.playBtnPressed(self.playButton)
     }
     @IBAction func playBtnPressed(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
         self.delegate?.playBtnPress(sender)
     }
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         self.delegate?.sliderValeChanged(sender)
     }
     @IBAction func soundBtnPressed(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
         self.delegate?.soundBtnPress(sender)
     }
     

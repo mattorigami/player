@@ -43,6 +43,7 @@ public protocol MBVideoPlayerControlsDelegate where Self: UIView {
     func didLoadVideo(_ url: URL)
     func seekToTime(_ seekTime: CMTime)
     func playPause(_ isActive: Bool)
+    func mute(isMute: Bool)
 }
 
 
