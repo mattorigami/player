@@ -32,8 +32,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "110"
             endingLineNumber = "110"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "collectionView(_:layout:sizeForItemAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -48,8 +48,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "234"
             endingLineNumber = "234"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "getAllAds()"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "C1A5D5E9-EC49-4D47-8B57-738720B69004 - cf393fe43945a4f7"
