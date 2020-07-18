@@ -11,7 +11,7 @@ protocol ControlViewDelegate {
     func playBtnPress(_ sender: UIButton)
     func sliderValeChanged(_ slider:UISlider)
 }
-
+// dummy cahnge
 class ControlView: UIView {
     @IBOutlet weak var verticalStackView: UIStackView!
     @IBOutlet weak public var totalTimeLable: UILabel!
