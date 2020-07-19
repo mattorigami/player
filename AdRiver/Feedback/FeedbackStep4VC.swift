@@ -68,6 +68,7 @@ class FeedbackStep4VC: UIViewController {
 
                // add an action (button)
                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action: UIAlertAction!) in
+                UserDefaults.standard.set(true, forKey: "reviewed")
                    self.dismiss(animated: true, completion: nil)
                }))
 

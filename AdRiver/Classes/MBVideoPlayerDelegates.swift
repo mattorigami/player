@@ -17,6 +17,7 @@ public enum MBVideoPlayerState {
     case playedToTheEnd
     case error
     case twentySecPause
+    case twentySecPlay
     case stopPlaying
 }
 

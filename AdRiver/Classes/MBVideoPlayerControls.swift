@@ -114,6 +114,7 @@ class MBVideoPlayerControls: UIView {
     var theme = MainTheme()
     
     var is20SecPause : Bool = false
+    var is20SecResume : Bool = false
     
     /// all four constraints of the player from mainContainer which we are using to make it fullScreen
     private var topC: NSLayoutConstraint?
@@ -249,12 +250,19 @@ class MBVideoPlayerControls: UIView {
     }
     
     func videoDidChange(_ time: CMTime) {
+        if UserDefaults.standard.bool(forKey: "reviewed"){
+            is20SecPause = false
+            is20SecResume = true
+            UserDefaults.standard.set(false, forKey: "reviewed")
+                        
+        }
         if is20SecPause {
             return
         }
         bottomControlsStackView.totalTimeLable.text =  time.description
         bottomControlsStackView.seekBar.value = time.asFloat
-        if floor(time.asFloat) == 5.0 {
+        // Pause for review 20 seconds
+        if floor(time.asFloat) == 10.0 && !is20SecResume{
             is20SecPause = true
             bottomControlsStackView.playBtnPressed(bottomControlsStackView.playButton)
             if let player = self.delegate?.playerStateDidChange {
@@ -495,6 +503,7 @@ extension MBVideoPlayerControls:PlayerTopViewDelegate{
 //        if !bottomControlsStackView.playButton.isSelected {
 //            bottomControlsStackView.playButton.isSelected = !bottomControlsStackView.playButton.isSelected
 //        }
+        is20SecResume = false
         bottomControlsStackView.playBtnPressed(bottomControlsStackView.playButton)
         if let player = delegate?.playerStateDidChange {
             player((.stopPlaying))
