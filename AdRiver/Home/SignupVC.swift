@@ -8,7 +8,13 @@
 
 import UIKit
 
+<<<<<<< HEAD
+class SignupVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate{
+    
+    
+=======
 class SignupVC: UIViewController {
+>>>>>>> 7a5153e79c9775f8338980b2f9c29ab06b3a52e1
 
     @IBOutlet weak var viewHeaderBtns: UIView!
     @IBOutlet weak var viewCreateAccount: UIView!
@@ -25,6 +31,13 @@ class SignupVC: UIViewController {
     @IBOutlet weak var viewEmail: UIView!
     @IBOutlet weak var btnNext: UIButton!
     @IBOutlet weak var btnBack: UIButton!
+<<<<<<< HEAD
+    //Create Account Fields
+    @IBOutlet weak var tfGender: UITextField!
+    var genderList = ["1", "2", "3"]
+    
+=======
+>>>>>>> 7a5153e79c9775f8338980b2f9c29ab06b3a52e1
     
     // Demo Graphic Details
     @IBOutlet weak var viewOccupation: UIView!
@@ -34,10 +47,28 @@ class SignupVC: UIViewController {
     @IBOutlet weak var viewNationality: UIView!
     @IBOutlet weak var viewQualification: UIView!
     
+<<<<<<< HEAD
+    // Ad Preferences Outlets
+    @IBOutlet weak var collectionPrefs: UICollectionView!
+    var items : NSArray!
+    
+    
+=======
+>>>>>>> 7a5153e79c9775f8338980b2f9c29ab06b3a52e1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+<<<<<<< HEAD
+        
+        // Ad Preferences
+        self.collectionPrefs.dataSource = self
+        self.collectionPrefs.delegate = self
+        self.collectionPrefs.allowsMultipleSelection = true
+         items = ["Adsoulute, Cover Future Campaigns, Charity and Donations", "Children Products", "Female Colthing & Accessories", "Infomercials", "Market Research", "Apps, Games, Software", "Electronics & Technology", "Food & Drinks", "Leisure, Sports, Gym & Outdoors", "Paid Oppertunities", "Arts, Crafts & Collectables", "Everyday & Increment Products", "Film & TV", "Male Clothing & Accessories", "Pets", "Banking, Loans, Insurance", "Female Health & Beauty", "Health Products", "Male Health & Grooming", "Travel & Holiday", "Toys", "Home Decor, Garden & DIY", "Music", "Utilities"]
+        
+=======
+>>>>>>> 7a5153e79c9775f8338980b2f9c29ab06b3a52e1
         //Header Buttons
         viewHeaderBtns.layer.cornerRadius = 20
         btnAdPref.layer.cornerRadius = 17
@@ -72,6 +103,14 @@ class SignupVC: UIViewController {
         btnNext.layer.borderColor = UIColor(red: 247/256, green: 45/256, blue: 48/256, alpha: 1.0).cgColor
 
         // Do any additional setup after loading the view.
+<<<<<<< HEAD
+        
+        //Picker view
+        
+        
+        
+=======
+>>>>>>> 7a5153e79c9775f8338980b2f9c29ab06b3a52e1
     }
     @IBAction func btnAdPrefTapped(_ sender: Any) {
         btnAdPref.backgroundColor = UIColor(red: 247/256, green: 45/256, blue: 48/256, alpha: 1)
@@ -153,6 +192,105 @@ class SignupVC: UIViewController {
         view.layer.borderWidth = 2
         view.layer.borderColor = UIColor(red: 71/256, green: 71/256, blue: 71/256, alpha: 1.0).cgColor
     }
+<<<<<<< HEAD
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        items.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+                let row = indexPath.item
+                // get a reference to our storyboard cell
+                let reuseIdentifier = "cell"
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! AdPrefCollectionCell
+
+                // Use the outlet in our custom class to get a reference to the UILabel in the cell
+                cell.layer.cornerRadius = 10
+                cell.layer.masksToBounds = true
+        cell.lblAdPref.text = items.object(at: row) as? String
+                
+                
+    //            cell.backgroundColor = UIColor.cyan // make cell more visible in our example project
+
+                return cell
+            }
+    private func collectionView(collectionView: UICollectionView, shouldSelectItemAt indexPath: NSIndexPath) -> Bool {
+        if let selectedItems = collectionView.indexPathsForSelectedItems {
+            if selectedItems.contains(indexPath as IndexPath) {
+                collectionView.deselectItem(at: indexPath as IndexPath, animated: true)
+                return false
+            }
+        }
+        return true
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // handle tap events
+        print("You selected cell #\(indexPath.item)!")
+        
+       
+        
+//        let dataDictonary = self.adsArray[indexPath.item] as! NSDictionary
+//        let videoUrlString = dataDictonary["video_path"] as? String
+//        let videoId = dataDictonary["_id"] as? String
+//        UserDefaults.standard.set(videoId, forKey: "videoId")
+//        if let url = videoUrlString{
+//            playVideo(url: url)
+//        }
+        
+        
+    }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+            let totalSpace = flowLayout.sectionInset.left
+                + flowLayout.sectionInset.right
+                + (flowLayout.minimumInteritemSpacing * CGFloat(3))
+        let sizeWidth = Int((collectionView.bounds.width - totalSpace) / CGFloat(3.9))
+        let sizeHeight = Int((collectionView.bounds.width - totalSpace) / CGFloat(5.6))
+            print(sizeWidth, sizeHeight)
+            return CGSize(width: sizeWidth, height: sizeHeight)
+    //        return CGSize(width:(collectionView.frame.height-90)/2, height: 100)
+        }
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int{
+        return 1
+    }
+
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+
+        return genderList.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+
+        self.view.endEditing(true)
+        return genderList[row]
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+
+
+        //        self.pickerView.isHidden = true
+    }
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+
+        if textField == self.tfGender {
+//            self.pickerView.isHidden = false
+            //if you don't want the users to se the keyboard type:
+
+            textField.endEditing(true)
+        }
+    }
+    
+
+    
+    
+=======
+>>>>>>> 7a5153e79c9775f8338980b2f9c29ab06b3a52e1
     /*
     // MARK: - Navigation
 
@@ -162,5 +300,9 @@ class SignupVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+<<<<<<< HEAD
+    
+=======
+>>>>>>> 7a5153e79c9775f8338980b2f9c29ab06b3a52e1
 
 }

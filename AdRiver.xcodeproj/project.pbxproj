@@ -43,6 +43,7 @@
 		C9C9D8382469E39E00CF03AA /* FeedbackStep2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C9D8372469E39E00CF03AA /* FeedbackStep2VC.swift */; };
 		C9C9D83A2469E3B300CF03AA /* FeedbackStep3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C9D8392469E3B300CF03AA /* FeedbackStep3VC.swift */; };
 		C9C9D83C2469E3C400CF03AA /* FeedbackStep4VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C9D83B2469E3C400CF03AA /* FeedbackStep4VC.swift */; };
+		C9F14CC125090BD3009A8FDE /* AdPrefCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F14CC025090BD3009A8FDE /* AdPrefCollectionCell.swift */; };
 		CEF192F424C388F40030641E /* SideButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF192F324C388F40030641E /* SideButtonView.swift */; };
 		CEF192F624C3890E0030641E /* SideButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEF192F524C3890E0030641E /* SideButtonView.xib */; };
 		CEF192F824C393110030641E /* PlayerTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF192F724C393110030641E /* PlayerTopView.swift */; };
@@ -115,6 +116,7 @@
 		C9C9D8372469E39E00CF03AA /* FeedbackStep2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackStep2VC.swift; sourceTree = "<group>"; };
 		C9C9D8392469E3B300CF03AA /* FeedbackStep3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackStep3VC.swift; sourceTree = "<group>"; };
 		C9C9D83B2469E3C400CF03AA /* FeedbackStep4VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackStep4VC.swift; sourceTree = "<group>"; };
+		C9F14CC025090BD3009A8FDE /* AdPrefCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdPrefCollectionCell.swift; sourceTree = "<group>"; };
 		CC580CE68813EA2E8E18C831 /* Pods_AdRiverTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdRiverTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF192F324C388F40030641E /* SideButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideButtonView.swift; sourceTree = "<group>"; };
 		CEF192F524C3890E0030641E /* SideButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideButtonView.xib; sourceTree = "<group>"; };
@@ -252,6 +254,10 @@
 				C9659C6E249650FA00E76B0A /* VideoCollectionCell.swift */,
 				C90D1FF7245BA97C00D17953 /* SignInVC.swift */,
 				C9ACF4E02507F326005FA6C5 /* SignupVC.swift */,
+<<<<<<< HEAD
+				C9F14CC025090BD3009A8FDE /* AdPrefCollectionCell.swift */,
+=======
+>>>>>>> 7a5153e79c9775f8338980b2f9c29ab06b3a52e1
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -552,6 +558,7 @@
 				C9659C6F249650FA00E76B0A /* VideoCollectionCell.swift in Sources */,
 				C90D1FC6245B9B0500D17953 /* AppDelegate.swift in Sources */,
 				C9388D842469FA7700B60167 /* FeedbackStep5VC.swift in Sources */,
+				C9F14CC125090BD3009A8FDE /* AdPrefCollectionCell.swift in Sources */,
 				C906D244246421D900D7534C /* TimerVC.swift in Sources */,
 				C9ACF4E12507F326005FA6C5 /* SignupVC.swift in Sources */,
 				C92D2F4224C353B90098E078 /* MBVideoPlayerControls.swift in Sources */,
