@@ -254,7 +254,10 @@
 				C9659C6E249650FA00E76B0A /* VideoCollectionCell.swift */,
 				C90D1FF7245BA97C00D17953 /* SignInVC.swift */,
 				C9ACF4E02507F326005FA6C5 /* SignupVC.swift */,
+<<<<<<< HEAD
 				C9F14CC025090BD3009A8FDE /* AdPrefCollectionCell.swift */,
+=======
+>>>>>>> 7a5153e79c9775f8338980b2f9c29ab06b3a52e1
 			);
 			path = Home;
 			sourceTree = "<group>";

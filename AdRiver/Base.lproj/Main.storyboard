@@ -1310,7 +1310,11 @@
                                 <color key="backgroundColor" red="0.1019607843" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BRz-dD-RyL">
+<<<<<<< HEAD
                                 <rect key="frame" x="58" y="72" width="552" height="254"/>
+=======
+                                <rect key="frame" x="58" y="73" width="552" height="254"/>
+>>>>>>> 7a5153e79c9775f8338980b2f9c29ab06b3a52e1
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hfS-9u-qUX">
@@ -1421,9 +1425,12 @@
                                                                 <color key="value" red="0.63529411759999999" green="0.63529411759999999" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+<<<<<<< HEAD
                                                         <connections>
                                                             <outlet property="delegate" destination="bfx-PN-6j9" id="3Pu-3A-LJR"/>
                                                         </connections>
+=======
+>>>>>>> 7a5153e79c9775f8338980b2f9c29ab06b3a52e1
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IuL-al-OSA">
                                                         <rect key="frame" x="211" y="10" width="13" height="17"/>
@@ -1520,7 +1527,11 @@
                                 <color key="backgroundColor" red="0.1019607843" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="02r-df-JJW">
+<<<<<<< HEAD
                                 <rect key="frame" x="667" y="72" width="552" height="254"/>
+=======
+                                <rect key="frame" x="667" y="73" width="552" height="254"/>
+>>>>>>> 7a5153e79c9775f8338980b2f9c29ab06b3a52e1
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yJZ-Y7-Npw">
@@ -1537,6 +1548,7 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.13725490200000001" green="0.13725490200000001" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
+<<<<<<< HEAD
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4TP-IE-CvS">
                                         <rect key="frame" x="8" y="38" width="536" height="208"/>
                                         <autoresizingMask key="autoresizingMask"/>
@@ -1582,6 +1594,15 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
+=======
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="In Progress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71M-Bp-0zL">
+                                        <rect key="frame" x="243" y="120" width="67" height="15"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
+                                        <color key="textColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+>>>>>>> 7a5153e79c9775f8338980b2f9c29ab06b3a52e1
                                 </subviews>
                                 <color key="backgroundColor" red="0.1019607843" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -1605,7 +1626,11 @@
                                 </connections>
                             </button>
                             <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bTM-zd-xzU">
+<<<<<<< HEAD
                                 <rect key="frame" x="667" y="87" width="552" height="225"/>
+=======
+                                <rect key="frame" x="667" y="88" width="552" height="225"/>
+>>>>>>> 7a5153e79c9775f8338980b2f9c29ab06b3a52e1
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zt7-BD-BDE">
@@ -1835,8 +1860,11 @@
                         <outlet property="btnCreateAccount" destination="NR1-Zm-J2d" id="dDF-zP-dKL"/>
                         <outlet property="btnDemoDetails" destination="nFV-59-e40" id="aL4-0h-Cf0"/>
                         <outlet property="btnNext" destination="o2P-8R-zNX" id="cQ3-Ab-7fa"/>
+<<<<<<< HEAD
                         <outlet property="collectionPrefs" destination="4TP-IE-CvS" id="Juz-Lm-1xC"/>
                         <outlet property="tfGender" destination="3GP-0c-vLg" id="K4V-wZ-Lns"/>
+=======
+>>>>>>> 7a5153e79c9775f8338980b2f9c29ab06b3a52e1
                         <outlet property="viewAdPref" destination="02r-df-JJW" id="55T-zP-F7i"/>
                         <outlet property="viewCreateAccount" destination="BRz-dD-RyL" id="fXw-GH-kFw"/>
                         <outlet property="viewCreatePass" destination="qkc-vc-d78" id="oEa-yh-c5c"/>

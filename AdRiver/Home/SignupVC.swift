@@ -8,9 +8,13 @@
 
 import UIKit
 
+<<<<<<< HEAD
 class SignupVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate{
     
     
+=======
+class SignupVC: UIViewController {
+>>>>>>> 7a5153e79c9775f8338980b2f9c29ab06b3a52e1
 
     @IBOutlet weak var viewHeaderBtns: UIView!
     @IBOutlet weak var viewCreateAccount: UIView!
@@ -27,10 +31,13 @@ class SignupVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     @IBOutlet weak var viewEmail: UIView!
     @IBOutlet weak var btnNext: UIButton!
     @IBOutlet weak var btnBack: UIButton!
+<<<<<<< HEAD
     //Create Account Fields
     @IBOutlet weak var tfGender: UITextField!
     var genderList = ["1", "2", "3"]
     
+=======
+>>>>>>> 7a5153e79c9775f8338980b2f9c29ab06b3a52e1
     
     // Demo Graphic Details
     @IBOutlet weak var viewOccupation: UIView!
@@ -40,15 +47,19 @@ class SignupVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     @IBOutlet weak var viewNationality: UIView!
     @IBOutlet weak var viewQualification: UIView!
     
+<<<<<<< HEAD
     // Ad Preferences Outlets
     @IBOutlet weak var collectionPrefs: UICollectionView!
     var items : NSArray!
     
     
+=======
+>>>>>>> 7a5153e79c9775f8338980b2f9c29ab06b3a52e1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+<<<<<<< HEAD
         
         // Ad Preferences
         self.collectionPrefs.dataSource = self
@@ -56,6 +67,8 @@ class SignupVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         self.collectionPrefs.allowsMultipleSelection = true
          items = ["Adsoulute, Cover Future Campaigns, Charity and Donations", "Children Products", "Female Colthing & Accessories", "Infomercials", "Market Research", "Apps, Games, Software", "Electronics & Technology", "Food & Drinks", "Leisure, Sports, Gym & Outdoors", "Paid Oppertunities", "Arts, Crafts & Collectables", "Everyday & Increment Products", "Film & TV", "Male Clothing & Accessories", "Pets", "Banking, Loans, Insurance", "Female Health & Beauty", "Health Products", "Male Health & Grooming", "Travel & Holiday", "Toys", "Home Decor, Garden & DIY", "Music", "Utilities"]
         
+=======
+>>>>>>> 7a5153e79c9775f8338980b2f9c29ab06b3a52e1
         //Header Buttons
         viewHeaderBtns.layer.cornerRadius = 20
         btnAdPref.layer.cornerRadius = 17
@@ -90,11 +103,14 @@ class SignupVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         btnNext.layer.borderColor = UIColor(red: 247/256, green: 45/256, blue: 48/256, alpha: 1.0).cgColor
 
         // Do any additional setup after loading the view.
+<<<<<<< HEAD
         
         //Picker view
         
         
         
+=======
+>>>>>>> 7a5153e79c9775f8338980b2f9c29ab06b3a52e1
     }
     @IBAction func btnAdPrefTapped(_ sender: Any) {
         btnAdPref.backgroundColor = UIColor(red: 247/256, green: 45/256, blue: 48/256, alpha: 1)
@@ -176,6 +192,7 @@ class SignupVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         view.layer.borderWidth = 2
         view.layer.borderColor = UIColor(red: 71/256, green: 71/256, blue: 71/256, alpha: 1.0).cgColor
     }
+<<<<<<< HEAD
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -272,6 +289,8 @@ class SignupVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
 
     
     
+=======
+>>>>>>> 7a5153e79c9775f8338980b2f9c29ab06b3a52e1
     /*
     // MARK: - Navigation
 
@@ -281,6 +300,9 @@ class SignupVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         // Pass the selected object to the new view controller.
     }
     */
+<<<<<<< HEAD
     
+=======
+>>>>>>> 7a5153e79c9775f8338980b2f9c29ab06b3a52e1
 
 }
