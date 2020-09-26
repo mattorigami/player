@@ -448,6 +448,8 @@ class MBVideoPlayerControls: UIView {
     }
 }
 
+
+
 // MARK: - UICollectionView Delegate & Datasource
 
 extension MBVideoPlayerControls: UICollectionViewDataSource {

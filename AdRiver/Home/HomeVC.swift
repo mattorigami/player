@@ -44,58 +44,10 @@ class HomeVC: UIViewController {
         searchBar.searchTextField.resignFirstResponder()
     }
     @IBAction func btnPlayTapped(_ sender: Any) {
-        let videoPath = Bundle.main.path(forResource: "SpaceX", ofType: "mov")
-        let videoPathUrl = URL(fileURLWithPath: videoPath!)
-        player = AVPlayer(url: videoPathUrl)
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name:
-//        NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
-//
-//
-//        playerViewController.player = player
-//        self.present(playerViewController, animated: true, completion: nil)
-//        player.play()
-        
-        let playerItems = [
-            PlayerItem(title: "Apple Live Broadcast WWDC.", url: "http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8", thumbnail: "1"),
-            PlayerItem(title: "Driving a Cycle experience.", url: "https://content.jwplatform.com/manifests/yp34SRmf.m3u8", thumbnail: "2"),
-            PlayerItem(title: "The Durian Open Movie Project.", url: "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8", thumbnail: "3"),
-            PlayerItem(title: "Table Ronde.", url: "https://mnmedias.api.telequebec.tv/m3u8/29880.m3u8", thumbnail: "4"),
-            PlayerItem(title: "What is this event? ... parker.", url: "https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8", thumbnail: "5")
-        ]
-        
-        
-        
-        playerView.setPlayList(currentItem: PlayerItem(title: "By Apple", url: videoPathUrl.absoluteString, thumbnail: "5"), items: playerItems, fullScreenView: view)
-        
-        view.addSubview(playerView)
-        playerView.pinEdges(to: view)
-        
-        playerView.playerStateDidChange = { (state) in
-            
-        }
-        playerView.playerOrientationDidChange = { (orientation) in
-        
-        }
-        playerView.playerDidChangeSize = { (dimension) in
-            
-        }
-        playerView.playerTimeDidChange = { (newTime, duration) in
-            
-        }
-        
-        
+       
+        self.performSegue(withIdentifier: "goSearchVC", sender: self)
     }
-    @objc func playerDidFinishPlaying(note: NSNotification) {
-        print("Video Finished")
-        self.dismiss(animated: true) {
-            print("Player Dimissed")
-        
-            let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "FeedbackQ1VC") as! FeedbackQ1VC
-            let navController = UINavigationController(rootViewController: VC1) // Creating a navigation controller with VC1 at the root of the navigation stack.
-            self.present(navController, animated:true, completion: nil)
-        }
-    }
+    
     @IBAction func btnWithdrawTapped(_ sender: Any) {
     }
     @IBAction func sidebarTapped(_ sender: Any) {
