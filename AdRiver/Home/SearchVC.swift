@@ -123,6 +123,10 @@ class SearchVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
 //        setupCustomPlayer()
         getAllAds()
     }
+    @IBAction func backBtnTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 //    func setupCustomPlayer() {
 //        AVPlayerVC.view.frame = self.view.frame
 //        AVPlayerVC.view.sizeToFit()

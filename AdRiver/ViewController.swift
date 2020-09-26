@@ -38,6 +38,7 @@ class ViewController: UIViewController {
 
 
     @IBAction func btnSignUpTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "goSignUpVC", sender: self)
     }
    
     

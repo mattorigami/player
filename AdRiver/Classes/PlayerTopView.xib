@@ -38,7 +38,7 @@
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="YxG-he-C2s"/>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="iv8-FE-Ksv"/>
                             </constraints>
-                            <state key="normal" backgroundImage="Follow"/>
+                            <state key="normal" backgroundImage="Stop_Button"/>
                             <connections>
                                 <action selector="stopButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="LiE-MW-5g4"/>
                             </connections>
@@ -79,7 +79,7 @@
         </view>
     </objects>
     <resources>
-        <image name="Follow" width="36" height="36"/>
         <image name="Shopping-Basket" width="64" height="64"/>
+        <image name="Stop_Button" width="66.666664123535156" height="66.666664123535156"/>
     </resources>
 </document>
