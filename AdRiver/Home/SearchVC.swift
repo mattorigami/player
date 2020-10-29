@@ -11,6 +11,7 @@ import Alamofire
 import SDWebImage
 import AVKit
 import AVFoundation
+import SideMenu
 
 class SearchVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     ///
@@ -121,6 +122,18 @@ class SearchVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
 
         // Do any additional setup after loading the view.
 //        setupCustomPlayer()
+        SideMenuManager.default.addPanGestureToPresent(toView: self.navigationController!.navigationBar)
+        SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+        
+        // If you need your SideMenu to appear from the left side
+//        let leftMenuNavigationController = SideMenuNavigationController(rootViewController: SearchVC)
+//        SideMenuManager.default.leftMenuNavigationController = leftMenuNavigationController
+        
+        //(Optional) Prevent status bar area from turning black when menu appears:
+//        leftMenuNavigationController.statusBarEndAlpha = 0
+        
+        
+        
         getAllAds()
     }
     @IBAction func backBtnTapped(_ sender: Any) {

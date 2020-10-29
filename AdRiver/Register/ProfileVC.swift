@@ -1,5 +1,5 @@
 //
-//  SignupVC.swift
+//  ProfileVC.swift
 //  AdRiver
 //
 //  Created by Matt on 07.09.20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignupVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate{
+class ProfileVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate{
     
     
 
@@ -29,19 +29,28 @@ class SignupVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     @IBOutlet weak var btnBack: UIButton!
     //Create Account Fields
     @IBOutlet weak var tfGender: UITextField!
-    var genderList = ["1", "2", "3"]
+    var genderList = ["Female", "Trans-Female", "Non Binary","Trans-Male","Male" ]
     
     // Demo Graphic Details
     @IBOutlet weak var viewOccupation: UIView!
     @IBOutlet weak var viewResidance: UIView!
     @IBOutlet weak var viewEthnicity: UIView!
     @IBOutlet weak var viewSexOrientation: UIView!
+    
     @IBOutlet weak var viewNationality: UIView!
+    @IBOutlet weak var tfNationality: UITextField!
+    
+    
     @IBOutlet weak var viewQualification: UIView!
+    @IBOutlet weak var tfQualification: UITextField!
     
     // Ad Preferences Outlets
     @IBOutlet weak var collectionPrefs: UICollectionView!
+    @IBOutlet weak var listCollection: UICollectionView!
+    
+    
     var items : NSArray!
+    var nationalitiesArray : NSArray!
     
     @IBOutlet weak var genderView: UIView!
     
@@ -55,7 +64,12 @@ class SignupVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         self.collectionPrefs.dataSource = self
         self.collectionPrefs.delegate = self
         self.collectionPrefs.allowsMultipleSelection = true
+        
+        
+        
          items = ["Adsoulute, Cover Future Campaigns, Charity and Donations", "Children Products", "Female Colthing & Accessories", "Infomercials", "Market Research", "Apps, Games, Software", "Electronics & Technology", "Food & Drinks", "Leisure, Sports, Gym & Outdoors", "Paid Oppertunities", "Arts, Crafts & Collectables", "Everyday & Increment Products", "Film & TV", "Male Clothing & Accessories", "Pets", "Banking, Loans, Insurance", "Female Health & Beauty", "Health Products", "Male Health & Grooming", "Travel & Holiday", "Toys", "Home Decor, Garden & DIY", "Music", "Utilities"]
+        
+         
         
         //Header Buttons
         viewHeaderBtns.layer.cornerRadius = 20
@@ -185,27 +199,63 @@ class SignupVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     }
     
     
+    @IBAction func btnNationalityTapped(_ sender: Any) {
+        
+        self.listCollection.isHidden = !self.listCollection.isHidden
+        nationalitiesArray = ["List Adsoulute, Cover Future Campaigns, Charity and Donations", "Children Products", "Female Colthing & Accessories", "Infomercials", "Market Research", "Apps, Games, Software", "Electronics & Technology", "Food & Drinks", "Leisure, Sports, Gym & Outdoors", "Paid Oppertunities", "Arts, Crafts & Collectables", "Everyday & Increment Products", "Film & TV", "Male Clothing & Accessories", "Pets", "Banking, Loans, Insurance", "Female Health & Beauty", "Health Products", "Male Health & Grooming", "Travel & Holiday", "Toys", "Home Decor, Garden & DIY", "Music", "Utilities"]
+        self.listCollection.dataSource = self
+        self.listCollection.delegate = self
+        
+    }
+    
+    @IBAction func btnQualificationTapped(_ sender: Any) {
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        items.count
+        
+        var tag = 0
+        if collectionView.tag == 0
+        {
+             tag = items.count
+        }
+        else{
+             tag = nationalitiesArray.count
+        }
+        return tag
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-                let row = indexPath.item
-                // get a reference to our storyboard cell
-                let reuseIdentifier = "cell"
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! AdPrefCollectionCell
-
-                // Use the outlet in our custom class to get a reference to the UILabel in the cell
-                cell.layer.cornerRadius = 10
-                cell.layer.masksToBounds = true
-        cell.lblAdPref.text = items.object(at: row) as? String
+         let row = indexPath.item
+        print("", collectionView.tag);
+        if collectionView == self.collectionPrefs {
+            let reuseIdentifier = "cell"
+            let cellAd = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! AdPrefCollectionCell
+            cellAd.layer.cornerRadius = 10
+            cellAd.layer.masksToBounds = true
+            
+            cellAd.lblAdPref.text = items.object(at: row) as? String
+            return cellAd
+            
+        }
+        else{
+            let reuseIdentifier1 = "cellList"
+            let cellList = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier1, for: indexPath as IndexPath) as! ListCollectionCell
+                    
+                    
+            cellList.layer.cornerRadius = 10
+            cellList.layer.masksToBounds = true
+            cellList.lblList.text = nationalitiesArray.object(at: row) as? String
+            return cellList
+        }
+                
                 
                 
     //            cell.backgroundColor = UIColor.cyan // make cell more visible in our example project
 
-                return cell
-            }
+                
+}
     private func collectionView(collectionView: UICollectionView, shouldSelectItemAt indexPath: NSIndexPath) -> Bool {
         if let selectedItems = collectionView.indexPathsForSelectedItems {
             if selectedItems.contains(indexPath as IndexPath) {
@@ -218,7 +268,10 @@ class SignupVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
-        
+        if collectionView == self.listCollection{
+        self.listCollection.isHidden = !self.listCollection.isHidden
+            self.tfNationality.text = nationalitiesArray.object(at: indexPath.row) as? String
+        }
        
         
 //        let dataDictonary = self.adsArray[indexPath.item] as! NSDictionary
@@ -235,6 +288,7 @@ class SignupVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == self.collectionPrefs{
             let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
             let totalSpace = flowLayout.sectionInset.left
                 + flowLayout.sectionInset.right
@@ -244,6 +298,17 @@ class SignupVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
             print(sizeWidth, sizeHeight)
             return CGSize(width: sizeWidth, height: sizeHeight)
     //        return CGSize(width:(collectionView.frame.height-90)/2, height: 100)
+        }else{
+            let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+                let totalSpace = flowLayout.sectionInset.left
+                    + flowLayout.sectionInset.right
+                    + (flowLayout.minimumInteritemSpacing * CGFloat(3))
+            let sizeWidth = Int((collectionView.bounds.width - totalSpace) / CGFloat(4.25))
+            let sizeHeight = Int((collectionView.bounds.width - totalSpace) / CGFloat(14.5))
+                print(sizeWidth, sizeHeight)
+                return CGSize(width: sizeWidth, height: sizeHeight)
+            
+        }
         }
     public func numberOfComponents(in pickerView: UIPickerView) -> Int{
         return 1
@@ -291,7 +356,7 @@ class SignupVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     
 
 }
-extension SignupVC: UITableViewDelegate,UITableViewDataSource {
+extension ProfileVC: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return genderList.count
     }
@@ -304,5 +369,9 @@ extension SignupVC: UITableViewDelegate,UITableViewDataSource {
         cell.selectionStyle = .none
         cell.textLabel?.textColor = .white
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tfGender.text = genderList[indexPath.row]
+        genderView.isHidden = true
     }
 }

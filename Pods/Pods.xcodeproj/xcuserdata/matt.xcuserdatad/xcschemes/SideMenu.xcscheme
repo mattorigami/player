@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "53B841165F6D438C339DE7CE08FFD9EE"
-               BuildableName = "MBVideoPlayer.framework"
-               BlueprintName = "MBVideoPlayer"
+               BlueprintIdentifier = "C4A0A7D8591B67FB75E2E8D215E3735B"
+               BuildableName = "SideMenu.framework"
+               BlueprintName = "SideMenu"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

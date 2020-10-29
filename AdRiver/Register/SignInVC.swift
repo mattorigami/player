@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SideMenu
 
 var isEyeCheck: Bool!
 enum Direction : String {
@@ -64,6 +65,7 @@ class SignInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.navigationController?.navigationBar.isHidden = true
         
         viewSignInBox.layer.cornerRadius = 20
       
@@ -110,12 +112,17 @@ class SignInVC: UIViewController {
     @IBAction func btnSignInTapped(_ sender: Any) {
 //        let vc = HomeVC() //change this to your class name
 //        self.present(vc, animated: true, completion: nil)
+        let menu = storyboard!.instantiateViewController(withIdentifier: "SearchVC") as! SideMenuNavigationController
+        self.present(menu, animated: true, completion: nil)
         
-        let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
-        let navController = UINavigationController(rootViewController: VC1) // Creating a navigation controller with VC1 at the root of the navigation stack.
-        self.present(navController, animated:true, completion: nil)
+        
+        
+//        let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+//        let navController = UINavigationController(rootViewController: VC1) // Creating a navigation controller with VC1 at the root of the navigation stack.
+//        self.present(navController, animated:true, completion: nil)
     }
     @IBAction func btnJoinTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "goSignUpVC", sender: self)
     }
     @IBAction func forgotTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "goForgotVC", sender: self)

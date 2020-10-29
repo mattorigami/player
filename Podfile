@@ -8,6 +8,7 @@ target 'AdRiver' do
    	pod 'Alamofire', '~> 5.2'
 use_frameworks!
 pod 'SDWebImage'
+pod 'SideMenu'
 
 
 
