@@ -4,27 +4,23 @@ PODS:
   - SDWebImage (5.7.3):
     - SDWebImage/Core (= 5.7.3)
   - SDWebImage/Core (5.7.3)
-  - SideMenu (6.5.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
   - IQKeyboardManager (~> 6.5)
   - SDWebImage
-  - SideMenu
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - IQKeyboardManager
     - SDWebImage
-    - SideMenu
 
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
   SDWebImage: 97351f6582ceca541ea294ba66a1fcb342a331c2
-  SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
 
-PODFILE CHECKSUM: 06354392c1eafd5f4f55688d967c5e0161425c34
+PODFILE CHECKSUM: ffb4e3a316fd1a451df52733691495b272e7b574
 
 COCOAPODS: 1.10.0.beta.2

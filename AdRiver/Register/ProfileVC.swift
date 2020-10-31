@@ -12,6 +12,7 @@ class ProfileVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     
     
 
+    @IBOutlet weak var menuBtn: UIButton!
     @IBOutlet weak var viewHeaderBtns: UIView!
     @IBOutlet weak var viewCreateAccount: UIView!
     @IBOutlet weak var viewDemoDetails: UIView!
@@ -59,6 +60,7 @@ class ProfileVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.isHidden = true
         
         // Ad Preferences
         self.collectionPrefs.dataSource = self
@@ -108,6 +110,19 @@ class ProfileVC: UIViewController, UICollectionViewDataSource, UICollectionViewD
         // Do any additional setup after loading the view.
         
         //Picker view
+        
+        
+        if revealViewController() != nil {
+                //            revealViewController().rearViewRevealWidth = 62
+                    self.menuBtn.addTarget(revealViewController(), action:"revealToggle:" , for: .touchUpInside)
+                    
+                    revealViewController().rightViewRevealWidth = 150
+        //                    menuBtn.target = revealViewController()
+        //                    extraButton.action = "rightRevealToggle:"
+
+                    self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+                            
+                    }
         
         
         

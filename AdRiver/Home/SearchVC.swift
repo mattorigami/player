@@ -11,15 +11,15 @@ import Alamofire
 import SDWebImage
 import AVKit
 import AVFoundation
-import SideMenu
 
-class SearchVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class SearchVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ENSideMenuDelegate {
     ///
     let AVPlayerVC = AVPlayerViewController()
     var commmentQueuePlayer = AVQueuePlayer()
     var OverlayView = UIView()
     var prevItem:AVPlayerItem?
     ///
+    @IBOutlet weak var menuBtn: UIButton!
     @IBOutlet weak var collectionAds: UICollectionView!
     @IBOutlet weak var videoPlayerView: MBVideoPlayerView!
     var playerView = MBVideoPlayerView(configuration: nil, theme: nil, header: nil)
@@ -122,20 +122,51 @@ class SearchVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
 
         // Do any additional setup after loading the view.
 //        setupCustomPlayer()
-        SideMenuManager.default.addPanGestureToPresent(toView: self.navigationController!.navigationBar)
-        SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+        self.navigationController?.navigationBar.isHidden = true
+//        self.sideMenuController()?.sideMenu?.delegate = self
         
-        // If you need your SideMenu to appear from the left side
-//        let leftMenuNavigationController = SideMenuNavigationController(rootViewController: SearchVC)
-//        SideMenuManager.default.leftMenuNavigationController = leftMenuNavigationController
-        
-        //(Optional) Prevent status bar area from turning black when menu appears:
-//        leftMenuNavigationController.statusBarEndAlpha = 0
-        
+        if revealViewController() != nil {
+        //            revealViewController().rearViewRevealWidth = 62
+            self.menuBtn.addTarget(revealViewController(), action:"revealToggle:" , for: .touchUpInside)
+            
+            revealViewController().rightViewRevealWidth = 150
+//                    menuBtn.target = revealViewController()
+//                    extraButton.action = "rightRevealToggle:"
+
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+                    
+            }
         
         
         getAllAds()
     }
+    @IBAction func toggleSideMenuBtn(_ sender: UIButton) {
+        toggleSideMenuView()
+    }
+    // MARK: - ENSideMenu Delegate
+    func sideMenuWillOpen() {
+        print("sideMenuWillOpen")
+    }
+    
+    func sideMenuWillClose() {
+        print("sideMenuWillClose")
+    }
+    
+    func sideMenuShouldOpenSideMenu() -> Bool {
+        print("sideMenuShouldOpenSideMenu")
+        return true
+    }
+    
+    func sideMenuDidClose() {
+        print("sideMenuDidClose")
+    }
+    
+    func sideMenuDidOpen() {
+        print("sideMenuDidOpen")
+    }
+    
+    
+    
     @IBAction func backBtnTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -310,7 +341,7 @@ class SearchVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     }
     
     func showSurveyView(){
-        let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "FeedbackQ1VC") as! FeedbackQ1VC
+        let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "FeedbackD2Q1VC") as! FeedbackD2Q1VC
         VC1.modalPresentationStyle = .overCurrentContext
 
         let navController = UINavigationController(rootViewController: VC1) // Creating a navigation controller with VC1 at the root of the navigation stack.
@@ -321,7 +352,7 @@ class SearchVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         self.dismiss(animated: true) {
             print("Player Dimissed")
             
-            let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "FeedbackQ1VC") as! FeedbackQ1VC
+            let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "FeedbackD2Q1VC") as! FeedbackD2Q1VC
             let navController = UINavigationController(rootViewController: VC1) // Creating a navigation controller with VC1 at the root of the navigation stack.
             self.present(navController, animated:true, completion: nil)
         }

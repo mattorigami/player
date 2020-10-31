@@ -14,6 +14,7 @@ var playerViewController = AVPlayerViewController()
 
 class HomeVC: UIViewController {
 
+    @IBOutlet weak var menuBtn: UIButton!
     @IBOutlet weak var videoPlayerView: MBVideoPlayerView!
     @IBOutlet weak var btnTimer: UIButton!
     @IBOutlet weak var btnWithdraw: UIButton!
@@ -38,6 +39,18 @@ class HomeVC: UIViewController {
         searchBar.searchTextField.layer.masksToBounds = true
 
         // Do any additional setup after loading the view.
+        
+        if revealViewController() != nil {
+                //            revealViewController().rearViewRevealWidth = 62
+                    self.menuBtn.addTarget(revealViewController(), action:"revealToggle:" , for: .touchUpInside)
+                    
+                    revealViewController().rightViewRevealWidth = 150
+        //                    menuBtn.target = revealViewController()
+        //                    extraButton.action = "rightRevealToggle:"
+
+                    self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+                            
+                    }
     }
     
     @IBAction func backgroundTapped(_ sender: Any) {

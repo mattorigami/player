@@ -8,11 +8,11 @@ target 'AdRiver' do
    	pod 'Alamofire', '~> 5.2'
 use_frameworks!
 pod 'SDWebImage'
-pod 'SideMenu'
+pod 'ENSwiftSideMenu', '~> 0.1.4'
 
 
 
- pod 'IQKeyboardManager', '~> 6.5'
+pod 'IQKeyboardManager', '~> 6.5'
 
   target 'AdRiverTests' do
     inherit! :search_paths
